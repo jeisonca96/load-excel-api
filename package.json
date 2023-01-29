@@ -19,11 +19,14 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
+    "@hapi/joi": "^17.1.1",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.1.4",
     "@nestjs/terminus": "^9.1.4",
+    "bson": "^4.7.2",
+    "joi": "^17.7.0",
     "moment": "^2.29.4",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",

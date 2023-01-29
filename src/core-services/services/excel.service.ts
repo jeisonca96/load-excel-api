@@ -1,5 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import * as XLSX from 'xlsx';
+import { mapExcelData, validateErrorData } from '../helpers/excel.helper';
 
 @Injectable()
 export class ExcelService {
@@ -7,12 +8,16 @@ export class ExcelService {
 
   async readExcel(file: Buffer): Promise<any> {
     const workbook = XLSX.read(file);
-    const sheetName = workbook.SheetNames[0];
-    this.logger.log('Reading excel file', { sheetName });
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    const data: any = XLSX.utils.sheet_to_json(sheet, { header: 1 });
 
-    const sheet = workbook.Sheets[sheetName];
-    const data = XLSX.utils.sheet_to_json(sheet);
+    const output = mapExcelData(data);
 
-    return data;
+    const errors = validateErrorData(output);
+    if (errors) {
+      return errors;
+    }
+
+    return output;
   }
 }
