@@ -14,9 +14,9 @@ export class ExcelDataDto {
 
   @ApiPropertyOptional()
   @IsArray()
-  errors?: Array<any>;
+  errors?: Record<any, any>[];
 
-  @ApiProperty()
+  @ApiPropertyOptional()
   @IsNumber()
   countRows: number;
 

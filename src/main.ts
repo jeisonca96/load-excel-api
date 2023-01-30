@@ -24,7 +24,7 @@ async function bootstrap() {
   const options = new DocumentBuilder()
     .setTitle('Load Excel API')
     .setDescription(
-      'Excel upload API with format validation and processing notification',
+      'API for Excel file upload with format validation and processing notification',
     )
     .setVersion('1.0')
     .build();

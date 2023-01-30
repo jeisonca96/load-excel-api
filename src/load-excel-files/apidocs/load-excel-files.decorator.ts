@@ -23,7 +23,6 @@ export const UploadExcelFileApiDocs = () =>
     ApiBody({
       type: 'formData',
       description: 'Excel file',
-      required: true,
       schema: {
         type: 'object',
         properties: {
