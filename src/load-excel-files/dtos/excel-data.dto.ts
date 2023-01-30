@@ -14,7 +14,7 @@ export class ExcelDataDto {
 
   @ApiPropertyOptional()
   @IsArray()
-  errors?: Record<any, any>[];
+  errors?: Array<any>;
 
   @ApiProperty()
   @IsNumber()

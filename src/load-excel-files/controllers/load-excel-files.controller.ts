@@ -25,7 +25,7 @@ export class LoadExcelFilesController {
   @Post()
   @UploadExcelFileApiDocs()
   @UseInterceptors(FileInterceptor('file'))
-  uploadExcelFile(@UploadedFile() file) {
+  async uploadExcelFile(@UploadedFile() file) {
     if (!file?.buffer) {
       throw new BadRequestException('File is required');
     }
