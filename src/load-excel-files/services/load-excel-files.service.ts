@@ -5,6 +5,7 @@ import { Model } from 'mongoose';
 import { LoadExcel, LoadExcelDocument } from '../schemas/load-excel.schema';
 import { ProcessExcelEvent } from '../events/process-excel.event';
 import { Events, LoadExcelStatus } from '../constants';
+import { ExcelDataDto } from '../dtos/excel-data.dto';
 
 @Injectable()
 export class LoadExcelFilesService {
@@ -41,7 +42,7 @@ export class LoadExcelFilesService {
     return loadedExcel;
   }
 
-  async getExcelData(requestId: string) {
+  async getExcelData(requestId: string): Promise<ExcelDataDto> {
     this.logger.log('Get excel data for', requestId);
 
     const loadedExcel = await this.findLoadExcel(requestId);

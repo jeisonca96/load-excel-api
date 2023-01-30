@@ -9,5 +9,5 @@ export class ApiErrorResponseDto {
   readonly message: string;
 
   @ApiProperty()
-  readonly error: object;
+  readonly error: Record<any, any>;
 }
